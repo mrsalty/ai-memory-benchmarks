@@ -22,6 +22,7 @@ evidence — this table is a summary view, not a substitute for it.
 | [LoCoMo](benchmarks/locomo.md)           | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | [LongMemEval](benchmarks/longmemeval.md) | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | 🟡 | ✅ | ❌ | ❌ | ❌ |
 | [MemoryAgentBench](benchmarks/memoryagentbench.md) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🟡 | ✅ | ❌ | ❌ | ❌ |
+| [BEAM](benchmarks/beam.md)               | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | 🟡 | ✅ | ❌ | ❌ | ❌ |
 
 **Capability key** (full names, linked to each capability's own page):
 
