@@ -1,6 +1,6 @@
 # Benchmark comparison matrix
 
-Columns refer to the 14 capabilities indexed in [`capabilities.md`](capabilities.md) (numbers
+Columns refer to the 16 capabilities indexed in [`capabilities.md`](capabilities.md) (numbers
 match that page's Capability index and each capability's own page under
 [`capabilities/`](capabilities/)). Each cell is scored with the Coverage rubric's
 Leg-A-gated decision rule — Leg A (authored targeting) is checked first: if the benchmark's
@@ -17,38 +17,55 @@ evidence — this table is a summary view, not a substitute for it.
 | None | ❌ | Leg A fails — no authored targeting found |
 | Pending | ☐ | not yet checked against this benchmark |
 
-| Benchmark | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| [LoCoMo](benchmarks/locomo.md) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| Capability / Benchmark                   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+|------------------------------------------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| [LoCoMo](benchmarks/locomo.md)           | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| [LongMemEval](benchmarks/longmemeval.md) | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | 🟡 | ✅ | ❌ | ❌ | ❌ |
+| [MemoryAgentBench](benchmarks/memoryagentbench.md) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🟡 | ✅ | ❌ | ❌ | ❌ |
 
 **Capability key** (full names, linked to each capability's own page):
-[1. Direct Retrieval](capabilities/01-direct-retrieval.md) ·
-[2. Relational Integration](capabilities/02-relational-integration.md) ·
-[3. Temporal Reasoning](capabilities/03-temporal-reasoning.md) ·
-[4. Memory Updating](capabilities/04-memory-updating.md) ·
-[5. Forgetting and Memory Management](capabilities/05-forgetting-and-memory-management.md) ·
-[6. Personalization](capabilities/06-personalization.md) ·
-[7. Procedural Memory](capabilities/07-procedural-memory.md) ·
-[8. Knowledge Abstraction](capabilities/08-knowledge-abstraction.md) ·
-[9. Episodic vs Semantic Understanding](capabilities/09-episodic-vs-semantic-understanding.md) ·
-[10. Memory Calibration](capabilities/10-memory-calibration.md) ·
-[11. Retrieval Robustness](capabilities/11-retrieval-robustness.md) ·
-[12. Persistence](capabilities/12-persistence.md) ·
-[13. Scalability](capabilities/13-scalability.md) ·
-[14. Associative Retrieval](capabilities/14-associative-retrieval.md)
 
-Cross-benchmark headline findings (e.g. "capability X is undertested across every benchmark
-surveyed") will be added once a second benchmark is verified and scored here — with only one row,
-any such finding would just be restating this one benchmark's results, not a real pattern. For
-LoCoMo's own metric detail, blind spots, and per-capability reasoning behind the row above, see
-[`benchmarks/locomo.md`](benchmarks/locomo.md) — already fully documented there, not duplicated
-here.
+[1. Direct Retrieval](capabilities/01-direct-retrieval.md) ·
+
+[2. Relational Integration](capabilities/02-relational-integration.md) ·
+
+[3. Temporal Reasoning](capabilities/03-temporal-reasoning.md) ·
+
+[4. Memory Updating](capabilities/04-memory-updating.md) ·
+
+[5. Forgetting and Memory Management](capabilities/05-forgetting-and-memory-management.md) ·
+
+[6. Personalization](capabilities/06-personalization.md) ·
+
+[7. Procedural Memory](capabilities/07-procedural-memory.md) ·
+
+[8. Knowledge Abstraction](capabilities/08-knowledge-abstraction.md) ·
+
+[9. Episodic vs Semantic Understanding](capabilities/09-episodic-vs-semantic-understanding.md) ·
+
+[10. Memory Calibration](capabilities/10-memory-calibration.md) ·
+
+[11. Retrieval Robustness](capabilities/11-retrieval-robustness.md) ·
+
+[12. Persistence](capabilities/12-persistence.md) ·
+
+[13. Scalability](capabilities/13-scalability.md) ·
+
+[14. Associative Retrieval](capabilities/14-associative-retrieval.md) ·
+
+[15. Memory Formation and Write Fidelity](capabilities/15-memory-formation-and-write-fidelity.md) ·
+
+[16. Memory Provenance and Source Attribution](capabilities/16-memory-provenance-and-source-attribution.md)
+
+This matrix deliberately contains only the grid, legend, and capability key. For metric detail,
+blind spots, and primary-source reasoning, see each benchmark's own page under
+[`benchmarks/`](benchmarks/).
 
 ## Adding a benchmark
 
 1. Add a page under `benchmarks/<name>.md` following [`benchmarks/locomo.md`](benchmarks/locomo.md)
    as the reference template: metadata, description, dataset statistics, task format, metric,
-   sample data, capability scoring (all 14 capabilities, Leg-A-gated), open questions.
+   sample data, capability scoring (all 16 capabilities, Leg-A-gated), open questions.
 2. Add a row to the table above using the same glyphs, sourced directly from that page's
    Capability scoring table — don't re-derive verdicts here, copy them.
 3. Once ≥2 benchmarks are scored, add real cross-benchmark headline findings back to this page,

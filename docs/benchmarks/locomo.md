@@ -13,6 +13,35 @@
 | Verification status | Verified against the ACL Anthology abstract page, an HTML mirror (ar5iv) of the arXiv preprint (including Table 2 and Table 3), the official GitHub repo's `README.MD`, its `scripts/` and `generative_agents/` directories, the released dataset file (`data/locomo10.json`, including the `event_summary` field), and the official eval code (`evaluation.py`, `evaluation_stats.py`). Not yet manually read in full by a human. |
 | Last reviewed | 2026-07-30 |
 
+## Citation
+
+```bibtex
+@inproceedings{maharana-etal-2024-evaluating,
+    title = "Evaluating Very Long-Term Conversational Memory of {LLM} Agents",
+    author = "Maharana, Adyasha  and
+      Lee, Dong-Ho  and
+      Tulyakov, Sergey  and
+      Bansal, Mohit  and
+      Barbieri, Francesco  and
+      Fang, Yuwei",
+    editor = "Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek",
+    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.acl-long.747/",
+    doi = "10.18653/v1/2024.acl-long.747",
+    pages = "13851--13870"
+}
+```
+
+Reproduced verbatim from the [ACL Anthology's own BibTeX export](https://aclanthology.org/2024.acl-long.747.bib)
+for this paper — `@inproceedings`, not `@article`, since this cites the published proceedings
+version, not the arXiv preprint.
+
 ## Description
 
 LoCoMo evaluates whether LLM agents can answer questions correctly over very long, multi-session
@@ -228,12 +257,12 @@ correctly recognizing the question as unanswerable given what was actually said.
 
 ## Capability scoring
 
-Capabilities refer to [`../capabilities.md`](../capabilities.md) (14-capability taxonomy index;
+Capabilities refer to [`../capabilities.md`](../capabilities.md) (16-capability taxonomy index;
 see [`../capabilities/`](../capabilities/) for each capability's full specification), scored
 against the Coverage rubric's Leg-A-gated decision rule: Leg A (authored targeting) is checked
 first — if it fails, the verdict is ❌ **None** regardless of any byproduct examples; if it
 holds, Legs B (concrete example) and C (metric isolation) decide between ✅ **Full** (both hold)
-and 🟡 **Partial** (either falls short). All 14 capabilities are scored below — each capability
+and 🟡 **Partial** (either falls short). All 16 capabilities are scored below — each capability
 page already carries a full definition and boundary rules (per the current taxonomy), so a ❌
 verdict here reflects a checked absence of authored targeting, not an unscored placeholder; it
 is still "no guessing," per this project's methodology, because every verdict below is backed by
@@ -262,6 +291,8 @@ section here yet).
 | 12 | [Persistence](../capabilities/12-persistence.md) | ❌ **None** | Leg A fails: the RAG baselines (`scripts/evaluate_rag_gpts.sh`, `scripts/generate_observations.sh`) build a retrieval index (dialog, observation, or session-summary embeddings, precomputed once via `task_eval/get_facts.py`) before querying it for QA — a structurally persistent artifact — but the authors' quotable intent for these baselines is comparing retrieval units/top-k values (Table 3), never "does memory survive a session/process boundary" specifically. No quotable statement targets this capability's exact core question, so any persistence-like behavior here is a byproduct of implementation, not authored targeting — the Leg A gate resolves this to None rather than Partial. The long-context baselines (Table 2) don't exercise this capability at all, for the separate reason that Capability 12 explicitly excludes single-context-window designs. |
 | 13 | [Scalability](../capabilities/13-scalability.md) | ✅ **Full** | Leg A: Table 2 ("Question answering performance of Base and Long-context models," per ar5iv) is the authors' own dedicated comparison of QA F1 across multiple context-window sizes (4K/8K/12K/16K tokens per the mirrored text) — i.e. performance as a function of how much accumulated conversation the system can access at once, quotably the authors' own design. Leg B/C: corroborated by `task_eval/evaluation_stats.py`'s `memory_counts_og`/`cum_accuracy_by_category_by_memory`, which explicitly buckets accuracy by token-distance to the farthest required evidence in 1K-token increments — a direct degradation-by-distance computation, reported per context-length point (and per category within each), not collapsed into one number. |
 | 14 | [Associative Retrieval](../capabilities/14-associative-retrieval.md) | ❌ **None** | Leg A fails: the open-domain knowledge category was checked as the closest candidate, but its authored target is associating a stored fact with *external* commonsense/world knowledge, not with *another stored memory* discovered via conceptual proximity — a different mechanism than Capability 14's core question (discovering a second, conceptually-related memory within the store itself, without an explicit stated link). No authorial statement targets that specific mechanism. |
+| 15 | [Memory Formation and Write Fidelity](../capabilities/15-memory-formation-and-write-fidelity.md) | ❌ **None** | Leg A fails: the authors define LoCoMo's evaluation as question answering, event summarization, and multimodal dialogue generation, not as deciding what an evaluated system should retain or scoring system-produced memory entries. The closest implementation artifacts are generated `observation` and `session_summary` records, but the official README says they are databases for RAG models; the generation scripts explicitly describe `get_facts.py` and `get_session_summaries.py` as producing embeddings "for RAG database." They are baseline preprocessing, not an authored write-fidelity task or metric. The QA evaluator scores only `prediction` against `answer` (F1 or adversarial abstention), so a later QA result cannot separate whether a system failed to write, retrieve, or reason over a memory. |
+| 16 | [Memory Provenance and Source Attribution](../capabilities/16-memory-provenance-and-source-attribution.md) | ❌ **None** | Leg A fails: no LoCoMo task is authored to require a system to report the speaker, turn, session, document, or inference source of a recalled claim. The released data does expose `speaker`, `dia_id`, session timestamps, and QA `evidence` pointers, but these are dataset/evaluator metadata, not required QA output. In `eval_question_answering`, the prediction is scored only against `answer`; the `evidence` field is consulted separately only to compute retrieval `recall_acc` when a context log exists. Thus a correct-content/wrong-source response is not penalized, so neither an attribution task nor an isolated provenance metric exists. |
 
 ## Open questions / follow-ups
 

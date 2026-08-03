@@ -12,7 +12,7 @@ the right answer — that gap is invisible unless someone maps it out.
 
 ## Contents
 
-- [`docs/capabilities.md`](docs/capabilities.md) — index into a 14-capability taxonomy
+- [`docs/capabilities.md`](docs/capabilities.md) — index into a 16-capability taxonomy
   (Direct Retrieval, Relational Integration, Temporal Reasoning, Memory Updating, and so on),
   plus a Coverage rubric with a deterministic, Leg-A-gated decision rule (✅ Full / 🟡 Partial /
   ❌ None / ☐ Pending). Each capability's full specification — definition, boundary rules,
@@ -23,8 +23,8 @@ the right answer — that gap is invisible unless someone maps it out.
   capability-by-capability scoring with cited justification, and known blind spots. This is
   where benchmark-specific evidence lives.
 - [`docs/matrix.md`](docs/matrix.md) — the benchmark × capability comparison matrix, using the
-  same glyphs as the capability pages. Currently covers LoCoMo only, the sole verified benchmark
-  page; grows one column-complete row at a time as more benchmarks are verified.
+  same glyphs as the capability pages. Currently covers verified LoCoMo, LongMemEval, and
+  MemoryAgentBench rows; grows one column-complete row at a time as more benchmarks are verified.
 
 ## Status
 
@@ -32,12 +32,13 @@ Rigor is applied one capability and one benchmark at a time — a ☐ `Pending` 
 than a guessed one. As it stands:
 
 - **Capabilities**: 1 (Direct Retrieval) and 2 (Relational Integration) have finalized
-  definitions, boundary rules, and verification criteria. Capabilities 3–14 have draft
+  definitions, boundary rules, and verification criteria. Capabilities 3–16 have draft
   descriptions only.
-- **Benchmarks**: [LoCoMo](docs/benchmarks/locomo.md) is the only benchmark page verified
-  against primary sources so far, and is fully scored across all 14 capabilities (✅ 5 Full, ❌ 9
-  None — every verdict checked against the paper, dataset, or eval code, not guessed). No other
-  benchmark page currently exists in this repo.
+- **Benchmarks**: [LoCoMo](docs/benchmarks/locomo.md),
+  [LongMemEval](docs/benchmarks/longmemeval.md), and
+  [MemoryAgentBench](docs/benchmarks/memoryagentbench.md) are verified against primary sources and
+  fully scored across all 16 capabilities. Every verdict is checked against the paper, released
+  dataset, and/or evaluator code rather than guessed.
 
 ## Scope
 
@@ -66,6 +67,13 @@ of the benchmark) — never a subjective impression:
 
 If Leg A holds and both B and C hold, the verdict is ✅ **Full**; if Leg A holds but B or C falls
 short, it's 🟡 **Partial**. Not yet checked is ☐ **Pending** — always more honest than a guess.
+
+### Evaluation process
+
+All benchmark evaluations in this catalog are conducted with support from **OpenAI GPT Terra** and
+then reviewed for accuracy by the project maintainer (a human). GPT-assisted analysis does not
+replace the primary-source evidence requirements above: every published verdict is human-reviewed
+against the cited paper, released dataset, and/or evaluation code.
 
 Benchmark and dataset licenses are noted per page and are separate from this repo's own MIT
 license.

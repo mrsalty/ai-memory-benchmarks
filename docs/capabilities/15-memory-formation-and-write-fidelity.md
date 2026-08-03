@@ -1,0 +1,25 @@
+# Capability 15 — Memory Formation and Write Fidelity
+
+[← Back to capability index](../capabilities.md)
+
+**Core question**: Can the benchmark determine whether the system correctly decides what to retain from an interaction and writes it into memory faithfully?
+
+**Definition**: salient, supported information from an interaction is selectively captured in a memory representation that preserves the facts needed for later use; irrelevant content, unsupported inferences, and extraction errors are not retained as if they were facts. The benchmark must distinguish a failure to form or faithfully write a memory from a later failure to retrieve or reason over a correctly formed one.
+
+**Motivation**: end-to-end recall failures are otherwise diagnostically ambiguous. A system may fail a later question because it never captured the needed information, captured it incorrectly, stored an unsupported generalization, or retrieved a correctly stored memory incorrectly. A benchmark that observes only final answers cannot separate these failure modes.
+
+**Why it matters**: a memory system can have excellent retrieval over its stored records while being unreliable in practice because the records were incomplete, distorted, or polluted when written. Measuring write fidelity makes the benchmark useful for evaluating memory formation rather than only memory access.
+
+**What kinds of benchmark tasks evaluate it**: tasks that provide an interaction stream, require the evaluated system to produce or update its own memory entries, and score those entries or their controlled later consequences against annotated salient facts, omissions, and forbidden unsupported claims. Useful formats include write-time extraction tests, selective-retention tests under a memory budget, and paired tests that separately score stored memories before querying them.
+
+**What does not belong to this capability**: evaluating only whether a later answer is correct is not enough — it conflates formation with Direct Retrieval ([Capability 1](01-direct-retrieval.md)), Relational Integration ([Capability 2](02-relational-integration.md)), or another downstream capability. Providing a benchmark-supplied summary, observation, or index to the evaluated system also does not test this capability, because the system did not decide or produce the memory being evaluated. Resolving an explicit later contradiction is Memory Updating ([Capability 4](04-memory-updating.md)); this capability concerns whether either version was faithfully captured in the first place.
+
+**Typical failure modes**: omitting a salient fact; storing a hallucinated inference as an asserted fact; losing the speaker, qualifier, negation, or condition that makes a fact accurate; storing every utterance indiscriminately; or compressing several facts into a memory that cannot support required later use.
+
+**Example benchmark questions**: after an interaction containing a durable preference, a one-off event, irrelevant chit-chat, and an uncertain statement, the benchmark inspects the system-produced memory and checks that the preference is captured accurately, the one-off event is represented with its context, irrelevant content is not promoted to memory, and uncertainty is not converted into a fact. A later query can then test retrieval separately from the write-time score.
+
+**Relationship to other capabilities**: this is an upstream lifecycle capability for most of the taxonomy: Direct Retrieval ([Capability 1](01-direct-retrieval.md)) asks whether a correctly stored fact can later be found, while this capability asks whether that fact was stored faithfully at all. It is related to Knowledge Abstraction ([Capability 8](08-knowledge-abstraction.md)), but abstraction evaluates forming a justified higher-level pattern from repeated observations; write fidelity evaluates accurate capture of the underlying observations and explicitly forbids unsupported generalization. It is also related to Forgetting and Memory Management ([Capability 5](05-forgetting-and-memory-management.md)), which evaluates later deprioritization or removal rather than initial retention decisions.
+
+**Mapping to cognitive science**: memory encoding — the initial registration of information, including selective attention and the fidelity with which an experience is represented before later retrieval or consolidation.
+
+**Notes about common ambiguities**: a benchmark with gold evidence pointers or human-authored summaries does not automatically test memory formation: those artifacts may support analysis or supply a retrieval corpus without scoring what the evaluated system itself wrote. To score this capability above `None`, verify that the benchmark authors explicitly target system-produced memory formation or retention and that the metric separates write quality from downstream answer quality.

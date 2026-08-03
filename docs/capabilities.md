@@ -114,10 +114,12 @@ capabilities, and how well, is scored on each benchmark's own page under
 | 12 | [Persistence](capabilities/12-persistence.md) | sw-sys; weak cog-sci analogue: consolidation over time |
 | 13 | [Scalability](capabilities/13-scalability.md) | sw-sys, no clean cog-sci analogue |
 | 14 | [Associative Retrieval](capabilities/14-associative-retrieval.md) | cog-sci: spreading activation / semantic network models |
+| 15 | [Memory Formation and Write Fidelity](capabilities/15-memory-formation-and-write-fidelity.md) | cog-sci: memory encoding |
+| 16 | [Memory Provenance and Source Attribution](capabilities/16-memory-provenance-and-source-attribution.md) | cog-sci: source monitoring |
 
 ## Known gaps — cog-sci capabilities no benchmark here tests
 
-These are well-studied human memory phenomena that don't correspond to any of the 14 capabilities
+These are well-studied human memory phenomena that don't correspond to any of the 16 capabilities
 above and have **no equivalent in any benchmark surveyed in this repo**. Listed here explicitly
 so the gap doesn't get lost — this is one of the more citable findings of the whole project.
 
@@ -130,16 +132,11 @@ so the gap doesn't get lost — this is one of the more citable findings of the 
   treat any forgetting as strictly bad.
 - **Reconsolidation-on-retrieval** — a memory becoming modifiable simply by being recalled. No
   benchmark tests whether retrieval itself should alter stored state.
-- **Source monitoring / misattribution** — confusing where a memory came from (user said it vs.
-  assistant inferred it). Related to, but distinct from, [Capability 10](capabilities/10-memory-calibration.md)
-  (memory calibration is about knowing *whether* memory is sufficient; this is about correctly
-  knowing *where* a memory came from). High-value gap given hallucination-provenance is a live
-  AI problem.
 
 ## Using this taxonomy
 
 Each benchmark page in [`benchmarks/`](benchmarks/) should score itself against Capabilities
-1–14 using the Coverage rubric above (✅ Full / 🟡 Partial / ❌ None / ☐ Pending) and note its
+1–16 using the Coverage rubric above (✅ Full / 🟡 Partial / ❌ None / ☐ Pending) and note its
 metric type plus that metric's structural blind spots — a benchmark can claim to "cover" a
 capability while its metric is structurally incapable of detecting failures in it (see:
 presence-in-top-k metrics and [Capability 11](capabilities/11-retrieval-robustness.md), retrieval
