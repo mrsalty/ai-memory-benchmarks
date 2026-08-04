@@ -1,88 +1,90 @@
-# ai-memory-benchmarks
+# AI Memory Benchmarks
 
-A catalog of public benchmarks for AI/software memory systems (persistent memory for
-LLM-based conversational agents and assistants), compared not just by what's available but by
-**which memory capabilities each one actually measures — and which it doesn't**.
+**A capability-first catalog of public benchmarks for AI memory systems.**
 
-Most benchmark leaderboards answer "which system scores highest." This repo answers a
-different question: for any given benchmark, what does a high score actually tell you, and
-what does it stay silent on? A benchmark can score presence-in-top-k accuracy while being
-structurally blind to whether the system also retrieved a pile of irrelevant noise alongside
-the right answer — that gap is invisible unless someone maps it out.
+This project asks a question that benchmark leaderboards usually do not: **what does a high score
+actually demonstrate—and what does it leave untested?**
 
-## Contents
+A benchmark can accurately measure whether a system found a relevant memory while remaining silent
+on whether it retrieved excessive noise, updated stale facts, preserved provenance, or worked at
+scale. This catalog makes those boundaries explicit.
 
-- [`docs/capabilities.md`](docs/capabilities.md) — index into a 16-capability taxonomy
-  (Direct Retrieval, Relational Integration, Temporal Reasoning, Memory Updating, and so on),
-  plus a Coverage rubric with a deterministic, Leg-A-gated decision rule (✅ Full / 🟡 Partial /
-  ❌ None / ☐ Pending). Each capability's full specification — definition, boundary rules,
-  failure modes, cognitive-science mapping — lives in its own page under
-  [`docs/capabilities/`](docs/capabilities/). These pages describe only what a capability *is*;
-  they name no specific benchmark.
-- [`docs/benchmarks/`](docs/benchmarks/) — one page per benchmark: task format, metric, a
-  capability-by-capability scoring with cited justification, and known blind spots. This is
-  where benchmark-specific evidence lives.
-- [`docs/matrix.md`](docs/matrix.md) — the benchmark × capability comparison matrix, using the
-  same glyphs as the capability pages. Currently covers verified LoCoMo, LongMemEval, and
-  MemoryAgentBench rows; grows one column-complete row at a time as more benchmarks are verified.
+## Start here
 
-## Status
+| Resource | Use it to… |
+|---|---|
+| [Comparison matrix](matrix.md) | Compare every verified benchmark across all 16 capabilities. |
+| [Capability taxonomy](docs/capabilities.md) | Understand the capabilities, scoring rubric, and scope. |
+| [Benchmark analyses](docs/benchmarks/) | Inspect task formats, metrics, primary-source evidence, and blind spots. |
 
-Rigor is applied one capability and one benchmark at a time — a ☐ `Pending` cell is more honest
-than a guessed one. As it stands:
+## What is covered
 
-- **Capabilities**: 1 (Direct Retrieval) and 2 (Relational Integration) have finalized
-  definitions, boundary rules, and verification criteria. Capabilities 3–16 have draft
-  descriptions only.
-- **Benchmarks**: [LoCoMo](docs/benchmarks/locomo.md),
-  [LongMemEval](docs/benchmarks/longmemeval.md), and
-  [MemoryAgentBench](docs/benchmarks/memoryagentbench.md) are verified against primary sources and
-  fully scored across all 16 capabilities. Every verdict is checked against the paper, released
-  dataset, and/or evaluator code rather than guessed.
+The catalog covers benchmarks for **AI/software memory systems**: persistent memory for LLM-based
+agents and assistants. It is architecture-neutral, so it can assess RAG stores, vector databases,
+knowledge graphs, structured memory layers, and other implementations by their observable
+behavior.
 
-## Scope
+It does **not** evaluate human cognition. Cognitive-science terminology is used only as a reference
+point when naming and defining capabilities; it is not a claim that these benchmarks are human
+psychometric tests.
 
-This catalogs benchmarks for **AI/software systems**, not human cognition. Cognitive
-psychology's memory taxonomy (episodic/semantic/procedural, working vs. long-term, etc.) is
-used only as a reference lens for naming and validating capabilities — see
-[`docs/capabilities.md`](docs/capabilities.md) for where that mapping holds and where it breaks
-down, and for the cog-sci phenomena no benchmark here tests at all.
+## Current coverage
 
-## Methodology
+Four benchmarks have been verified against their primary sources and scored across all 16
+capabilities:
 
-Every capability verdict for a benchmark is decided by checking three proof legs, in order,
-against **primary sources** (the actual paper and released dataset/code, not general knowledge
-of the benchmark) — never a subjective impression:
+- [BEAM](docs/benchmarks/beam.md)
+- [LoCoMo](docs/benchmarks/locomo.md)
+- [LongMemEval](docs/benchmarks/longmemeval.md)
+- [MemoryAgentBench](docs/benchmarks/memoryagentbench.md)
 
-- **Leg A — Authored targeting** (checked first, and gates everything else): can you *quote*
-  the benchmark's authors defining a category or task that specifically targets this
-  capability's core question? If not, the verdict is ❌ **None**, regardless of any incidental
-  examples that might exist in the data — byproduct coverage the authors never designed for
-  isn't a reliable signal.
-- **Leg B — Concrete demonstration**: a real, traceable example from the released dataset
-  showing the capability is genuinely required, verified by reading the example itself.
-- **Leg C — Metric isolation**: whether the benchmark's metric produces a score reflecting this
-  capability specifically, not blended into an aggregate or actually measuring a different
-  property under a similar name.
+The [comparison matrix](matrix.md) is the concise view. Each benchmark page contains the evidence
+behind its row, including the task, metric, released-data examples, licenses, and limitations.
 
-If Leg A holds and both B and C hold, the verdict is ✅ **Full**; if Leg A holds but B or C falls
-short, it's 🟡 **Partial**. Not yet checked is ☐ **Pending** — always more honest than a guess.
+## How scoring works
 
-### Evaluation process
+Every benchmark–capability verdict is grounded in primary sources: the original paper and released
+dataset and/or evaluation code. The process checks three proof legs in order:
 
-All benchmark evaluations in this catalog are conducted with support from **OpenAI GPT Terra** and
-then reviewed for accuracy by the project maintainer (a human). GPT-assisted analysis does not
-replace the primary-source evidence requirements above: every published verdict is human-reviewed
-against the cited paper, released dataset, and/or evaluation code.
+1. **Authored targeting (Leg A):** Do the benchmark authors explicitly define a task or category
+   for that capability’s core question? If not, the result is **❌ None**. Incidental examples are
+   not enough.
+2. **Concrete demonstration (Leg B):** Does released data contain a traceable example that truly
+   requires the capability?
+3. **Metric isolation (Leg C):** Does the metric score that capability specifically, rather than
+   blend it into a broader measure?
 
-Benchmark and dataset licenses are noted per page and are separate from this repo's own MIT
-license.
+| Verdict | Meaning |
+|---|---|
+| ✅ **Full** | Legs A, B, and C hold. |
+| 🟡 **Partial** | Leg A holds, but Leg B or C falls short. |
+| ❌ **None** | Leg A fails; the benchmark was not authored to test it. |
+| ☐ **Pending** | Not yet evaluated. |
+
+This standard deliberately favors an explicit pending result over an attractive but unsupported
+claim. Benchmark and dataset licenses are recorded on their individual pages and remain separate
+from this repository’s [MIT license](LICENSE).
+
+## Repository layout
+
+```text
+.
+├── README.md                  # Project overview and navigation
+├── matrix.md                  # Benchmark × capability comparison
+└── docs/
+    ├── capabilities.md        # Taxonomy index and scoring rubric
+    ├── capabilities/          # One benchmark-agnostic specification per capability
+    └── benchmarks/            # One evidence-backed analysis per benchmark
+```
+
+`matrix.md` is at the root because it is the main comparison entry point. The `docs/` boundary is
+intentional: it keeps the root concise and groups the two growing documentation collections without
+mixing benchmark evidence into capability definitions.
 
 ## Contributing
 
-To propose a new benchmark, open a PR adding a page under `docs/benchmarks/<name>.md` with the
-benchmark's official facts — paper, official code/data repo, license, dataset statistics, task
-format, and metric — cited only to official sources (the paper, the dataset/code repo, or the
-project's own website), following [`docs/benchmarks/locomo.md`](docs/benchmarks/locomo.md) as
-the reference template. Capability scoring against [`docs/capabilities.md`](docs/capabilities.md)
-is filled in during review, not required in the initial PR.
+To propose a benchmark, open a pull request that adds
+`docs/benchmarks/<name>.md`, following the [LoCoMo page](docs/benchmarks/locomo.md) as the template.
+Use official sources only: the paper, official code or dataset repository, and the project website.
+Include the benchmark’s metadata, license, dataset statistics, task format, metric, and links to
+the source material. Capability scoring is completed during review using the rubric above.
