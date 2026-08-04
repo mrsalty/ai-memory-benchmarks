@@ -1,6 +1,6 @@
 # Capability 10 — Memory Calibration
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -49,12 +49,17 @@ hallucinating a specific, confident-sounding but unsupported answer
 when memory has nothing relevant; or the opposite failure — over-abstaining on questions that
 were actually answerable, which trades hallucination risk for uselessness.
 
-## Example
+## Illustrative benchmark item
 
-a question constructed so that memory contains no supporting
-fact at all (e.g. asking for a preference the user never stated), designed to trick the system
-into providing a plausible-sounding wrong answer, with the expectation that it instead
-recognizes the question as unanswerable from memory.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** No stored information mentions the user's preferred airline.
+>
+> **Task:** “Which airline does the user prefer?”
+>
+> **Expected behavior:** State that the preference is not known from memory, or ask for clarification.
+>
+> **Why this capability:** The correct response recognizes absent evidence instead of producing a plausible unsupported answer.
 
 ## Relationship to other capabilities
 

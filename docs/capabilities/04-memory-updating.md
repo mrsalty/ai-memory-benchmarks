@@ -1,6 +1,6 @@
 # Capability 4 — Memory Updating
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -51,12 +51,17 @@ often in context, blending both versions into a hedge instead of picking the cur
 correctly retrieving the new fact but being unable to explain that (or why) it changed when
 asked.
 
-## Example
+## Illustrative benchmark item
 
-a canonical format is: session N states "I live in Seattle,"
-session N+k states "I just moved to Boston," and the eval question asks "Where does the user
-currently live?" — testing whether the system answers "Boston," not "Seattle," and doesn't
-merely retrieve whichever mention is more prominent.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “I live in Seattle.” Later: “I moved to Boston last month.”
+>
+> **Task:** “Where does the user currently live?”
+>
+> **Expected behavior:** Return “Boston,” rather than the earlier Seattle statement.
+>
+> **Why this capability:** The later statement explicitly supersedes the earlier one; the task tests resolution of a contradiction.
 
 ## Relationship to other capabilities
 

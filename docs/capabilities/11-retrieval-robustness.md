@@ -1,6 +1,6 @@
 # Capability 11 — Retrieval Robustness
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -52,12 +52,17 @@ or contradictory ones alongside it, letting a downstream generation step get con
 noise even when precision-of-location was fine; or being technically "correct" per a
 presence-based metric while being useless in practice because of surrounding noise.
 
-## Example
+## Illustrative benchmark item
 
-a question whose correct answer is present in the stored
-memory alongside several plausible-but-wrong distractor facts (e.g. near-duplicate entities,
-similar attributes for different people) — the benchmark checks whether the final answer
-reflects the correct fact specifically, not a blend or a wrong neighbor.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** The target fact says “Mina prefers decaf”; nearby distractors state that several other people prefer regular coffee.
+>
+> **Task:** “What coffee does Mina prefer?” The evaluation records both the answer and irrelevant memories retrieved alongside it.
+>
+> **Expected behavior:** Return “decaf” without contaminating the answer or retrieval set with the distractors.
+>
+> **Why this capability:** The benchmark must penalize irrelevant retrieval, not merely reward finding the target fact.
 
 ## Relationship to other capabilities
 

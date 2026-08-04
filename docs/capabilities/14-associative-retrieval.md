@@ -1,6 +1,6 @@
 # Capability 14 — Associative Retrieval
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -54,12 +54,17 @@ keyword or stated link connects it to the query; or the opposite failure — ove
 surfacing loosely related but ultimately irrelevant memories (bleeding into [Capability 11](11-retrieval-robustness.md)
 territory).
 
-## Example
+## Illustrative benchmark item
 
-a user mentions owning camping equipment across several
-mentions; a later question asks for gift ideas or activity suggestions, and the benchmark checks
-whether outdoor/camping-adjacent options are surfaced without the user ever explicitly stating
-"I like camping" or being asked to recall the equipment directly.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** The user mentions owning a tent, sleeping bag, and hiking boots, but never says “I enjoy camping.”
+>
+> **Task:** “Suggest a gift the user might enjoy.”
+>
+> **Expected behavior:** Surface an outdoor- or camping-related idea with appropriate uncertainty.
+>
+> **Why this capability:** The relevant memory is conceptually associated with the task rather than explicitly linked or logically combined.
 
 ## Relationship to other capabilities
 

@@ -1,6 +1,6 @@
 # Capability 6 — Personalization
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -52,12 +52,17 @@ to apply it unprompted in a task where it should have mattered (e.g. still recom
 meat dish); or over-applying a one-off statement as if it were a stable preference (bleeding
 into [Capability 9](09-episodic-vs-semantic-understanding.md) territory).
 
-## Example
+## Illustrative benchmark item
 
-the benchmark verifies that a restaurant recommendation
-respects a previously remembered dietary preference — not by asking "what's the user's dietary
-preference" (that's [Capability 1](01-direct-retrieval.md)), but by asking for a recommendation and checking the output
-respects the preference without being asked to recall it directly.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “I avoid dairy.”
+>
+> **Task:** “Suggest a dessert for me.”
+>
+> **Expected behavior:** Suggest a dairy-free dessert without being prompted to restate the preference.
+>
+> **Why this capability:** The remembered preference must change a separate recommendation, rather than simply be recalled.
 
 ## Relationship to other capabilities
 

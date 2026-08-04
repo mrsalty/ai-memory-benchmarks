@@ -1,6 +1,6 @@
 # Capability 12 — Persistence
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -52,12 +52,17 @@ losing it once a new session starts; or requiring the entire prior conversation 
 re-fed as context (rather than a persisted memory store) to "simulate" persistence, which
 doesn't actually test cross-session storage.
 
-## Example
+## Illustrative benchmark item
 
-a fact is stated in one session; a separate, independently
-initiated session (not the same context, no replayed history) later asks a question that can
-only be answered correctly if that earlier fact was actually persisted and retrieved, rather
-than re-supplied as part of the prompt.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** In session one, the user states a preferred meeting time. The application then closes and starts a new session without replaying the old transcript.
+>
+> **Task:** In the new session, schedule a meeting for the user.
+>
+> **Expected behavior:** Use the earlier preference from persisted memory.
+>
+> **Why this capability:** The task requires a genuine session or process boundary; a single long prompt would not test persistence.
 
 ## Relationship to other capabilities
 

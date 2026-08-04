@@ -1,6 +1,6 @@
 # Capability 2 — Relational Integration (Multi-hop)
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -57,11 +57,17 @@ hallucinating the rest, retrieving both facts but failing to combine them correc
 "solving" the question via world knowledge instead of the stored facts (a contamination
 failure).
 
-## Example
+## Illustrative benchmark item
 
-*"Where did the user move from before their current city?"*,
-where one turn states how long ago the move happened and a separate, non-adjacent turn names
-the origin location — neither turn alone answers the question, only their combination does.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “I moved to Lisbon last year.” Later: “Before the move, I lived in Porto.”
+>
+> **Task:** “Where did the user live before moving to Lisbon?”
+>
+> **Expected behavior:** Return “Porto” by combining the destination and origin statements.
+>
+> **Why this capability:** Neither turn alone fully establishes the answer; the compatible facts must be jointly used.
 
 ## Relationship to other capabilities
 

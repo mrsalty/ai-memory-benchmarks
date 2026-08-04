@@ -1,6 +1,6 @@
 # Capability 15 — Memory Formation and Write Fidelity
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -38,9 +38,17 @@ Read the actual task, released example, and metric before assigning a category. 
 
 omitting a salient fact; storing a hallucinated inference as an asserted fact; losing the speaker, qualifier, negation, or condition that makes a fact accurate; storing every utterance indiscriminately; or compressing several facts into a memory that cannot support required later use.
 
-## Example
+## Illustrative benchmark item
 
-after an interaction containing a durable preference, a one-off event, irrelevant chit-chat, and an uncertain statement, the benchmark inspects the system-produced memory and checks that the preference is captured accurately, the one-off event is represented with its context, irrelevant content is not promoted to memory, and uncertainty is not converted into a fact. A later query can then test retrieval separately from the write-time score.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Interaction:** The user states a durable dietary preference, mentions a one-time event, makes irrelevant small talk, and expresses uncertainty about a plan.
+>
+> **Task:** Ask the evaluated system to create its own memory entry, then score that entry against annotated facts and forbidden inferences.
+>
+> **Expected behavior:** Faithfully retain the preference and qualified event, omit irrelevant chatter, and avoid turning uncertainty into a fact.
+>
+> **Why this capability:** The system's written memory is evaluated before any later retrieval task can confound write quality with recall.
 
 ## Relationship to other capabilities
 

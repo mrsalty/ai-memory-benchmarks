@@ -1,6 +1,6 @@
 # Capability 7 — Procedural Memory
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -54,11 +54,17 @@ correctly recalling the stated procedure when asked to describe it,
 but failing to actually *follow* it in a new task without being reminded — the procedural
 equivalent of the [Capability 6](06-personalization.md) recall-vs-application gap.
 
-## Example
+## Illustrative benchmark item
 
-a user specifies a preferred code review format in an early
-session; a later session asks the system to review new code, and the benchmark checks whether
-the review follows the previously-specified format without being told the format again.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “For code reviews, begin with blocking issues, then list optional improvements.”
+>
+> **Task:** In a later interaction, review a pull request without repeating that instruction.
+>
+> **Expected behavior:** Produce the review in the agreed order.
+>
+> **Why this capability:** The stored procedure must be applied to a new task, not merely described when asked.
 
 ## Relationship to other capabilities
 

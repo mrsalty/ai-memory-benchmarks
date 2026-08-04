@@ -24,13 +24,17 @@ A Direct Retrieval item should require an answer that traces to **one identifiab
 - recalling a name, location, or explicitly stated preference; and
 - any question whose answer is fully supported by one stored fact.
 
-### Example
+## Illustrative benchmark item
 
-> **Question:** “What city does the user live in?”
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
 >
-> **Qualifies when:** one earlier turn states the user's city, and no other turn is needed to answer the question.
-
-Likewise, “What is the user's job?” qualifies when one stated fact completely answers it. These are generic examples, not references to a specific benchmark or dataset.
+> **Memory:** “I live in Porto.”
+>
+> **Task:** “Which city does the user live in?”
+>
+> **Expected behavior:** Return “Porto” by retrieving that one stored statement.
+>
+> **Why this capability:** One source turn fully answers the question. No fact combination, temporal interpretation, or contradiction resolution is required.
 
 ## Boundaries and exclusions
 

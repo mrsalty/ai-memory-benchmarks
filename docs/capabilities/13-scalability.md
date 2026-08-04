@@ -1,6 +1,6 @@
 # Capability 13 — Scalability
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -51,12 +51,17 @@ which provides no scalability evidence at all regardless of how large that fixed
 degrading gracefully on paper due to averaging effects that mask a sharp cliff at a specific
 scale threshold.
 
-## Example
+## Illustrative benchmark item
 
-a benchmark reporting accuracy separately at multiple context
-lengths or distractor counts (e.g. accuracy at 1k, 10k, 100k tokens of accumulated memory),
-letting a reader see whether and where performance drops off, rather than one number for the
-whole dataset.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** Identical retrieval tasks are evaluated with stores containing 1,000, 10,000, and 100,000 memories.
+>
+> **Task:** Report the same task metric separately at each store size.
+>
+> **Expected behavior:** Make the performance trend and any degradation visible.
+>
+> **Why this capability:** Multiple controlled scale points are required; one large dataset with one aggregate score is insufficient.
 
 ## Relationship to other capabilities
 

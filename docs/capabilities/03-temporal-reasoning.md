@@ -1,6 +1,6 @@
 # Capability 3 — Temporal Reasoning
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -50,11 +50,17 @@ conflating "recently mentioned" with "recently true," miscomputing
 relative dates ("the week before X"), or answering with the wrong session's timeframe when
 multiple candidate events could match.
 
-## Example
+## Illustrative benchmark item
 
-*"When did the user start their new job?"* → *"the Monday
-before their birthday"* — answerable only by resolving a relative time expression against
-another stated date, not by reciting a verbatim timestamp.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “My new job starts on 3 June.” Later: “My birthday is 10 June.”
+>
+> **Task:** “Did the job start before or after the user's birthday?”
+>
+> **Expected behavior:** Answer “Before.”
+>
+> **Why this capability:** Success requires ordering two dates, not merely retrieving either date.
 
 ## Relationship to other capabilities
 

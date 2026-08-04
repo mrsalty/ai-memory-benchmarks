@@ -1,6 +1,6 @@
 # Capability 9 — Episodic vs Semantic Understanding
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -51,11 +51,17 @@ one purchase treated as an ongoing shopping habit, one complaint
 treated as persistent dissatisfaction, or a genuinely repeated pattern dismissed as a
 coincidence.
 
-## Example
+## Illustrative benchmark item
 
-a user mentions a single vacation to Italy once; a later
-question probes whether the system incorrectly infers a general "loves Italy" travel preference
-from that single mention, versus correctly treating it as a one-off episodic fact.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** “I visited Italy once on a school trip.”
+>
+> **Task:** “Should the assistant treat Italy as a standing travel preference?”
+>
+> **Expected behavior:** No; identify the statement as a one-off event rather than a durable preference.
+>
+> **Why this capability:** The task tests whether an episode is kept distinct from generalized knowledge.
 
 ## Relationship to other capabilities
 

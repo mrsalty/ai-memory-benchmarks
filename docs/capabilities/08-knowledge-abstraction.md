@@ -1,6 +1,6 @@
 # Capability 8 — Knowledge Abstraction
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -54,12 +54,17 @@ pattern — a [Capability 9](09-episodic-vs-semantic-understanding.md) boundary 
 the pattern is clearly present across many mentions, or forming an abstraction but being unable
 to cite the observations that support it.
 
-## Example
+## Illustrative benchmark item
 
-multiple separate mentions of running long distances on
-weekends, in different sessions, followed by a question like "Is the user likely training for
-something?" — correctly answering "probably a marathon" requires abstraction across all the
-mentions, not retrieval of any single one.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** Across several sessions, the user describes long weekend runs, a training schedule, and an upcoming race.
+>
+> **Task:** “What long-term goal is the user likely pursuing?”
+>
+> **Expected behavior:** Infer a supported high-level goal such as training for a marathon, while expressing appropriate uncertainty.
+>
+> **Why this capability:** The conclusion is a pattern across repeated observations, not a fact stated in any one turn.
 
 ## Relationship to other capabilities
 

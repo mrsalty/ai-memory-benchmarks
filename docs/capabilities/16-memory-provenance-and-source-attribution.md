@@ -1,6 +1,6 @@
 # Capability 16 — Memory Provenance and Source Attribution
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -38,9 +38,17 @@ Read the actual task, released example, and metric before assigning a category. 
 
 assigning one speaker's statement to another; confusing a direct user statement with an assistant-generated summary or inference; reporting the right fact with the wrong session or document citation; or attributing a memory to a plausible but unsupported source.
 
-## Example
+## Illustrative benchmark item
 
-two speakers make similar but conflicting statements in separate sessions; a later query asks both for the current relevant fact and which speaker or turn established it. Another item presents an assistant inference derived from several turns and asks the system to distinguish that inference from a fact directly stated by the user.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** Two speakers make different statements about a project deadline; a later assistant summary contains an inference based on both.
+>
+> **Task:** Report the current deadline and identify which speaker or source established it, while distinguishing a direct statement from the assistant inference.
+>
+> **Expected behavior:** Return the correct claim with its correct source; a correct claim paired with the wrong source is scored incorrect.
+>
+> **Why this capability:** Provenance itself is an evaluated output, not hidden metadata available only to the evaluator.
 
 ## Relationship to other capabilities
 

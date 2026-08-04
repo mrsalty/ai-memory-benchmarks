@@ -1,6 +1,6 @@
 # Capability 5 — Forgetting and Memory Management
 
-
+[← Back to capability index](../capabilities.md)
 
 ## At a glance
 
@@ -52,12 +52,17 @@ retrieval precision at scale — bleeding into [Capability 11](11-retrieval-robu
 forgetting facts that are still relevant (dropping true long-term preferences because they
 weren't restated recently).
 
-## Example
+## Illustrative benchmark item
 
-a benchmark item that never restates a persona detail after
-early sessions, then asks (many sessions later, with substantial irrelevant content in
-between) a question that only works if seldom-repeated but still-relevant information wasn't
-pruned — designed to probe the boundary between healthy pruning and harmful over-forgetting.
+> **Status:** Hypothetical example—not evidence that a specific benchmark measures this capability.
+>
+> **Memory:** An early conversation records a durable dietary preference, followed by many sessions of unrelated small talk.
+>
+> **Task:** Later, recommend a meal while the benchmark constrains memory capacity or measures which memories remain active.
+>
+> **Expected behavior:** Preserve and use the durable preference without retaining or surfacing irrelevant chatter.
+>
+> **Why this capability:** The item tests selective retention and deprioritization, not resolution of an explicit contradiction.
 
 ## Relationship to other capabilities
 
