@@ -2,53 +2,65 @@
 
 [← Back to capability index](../capabilities.md)
 
-**Core question**: Can the benchmark determine whether the system correctly retrieves a single
-stored memory?
+## At a glance
 
-**Definition**: the answer is fully contained in a single stored fact or turn; retrieving and
-returning that one fact (verbatim or paraphrased) is sufficient, with no combination with any
-other stored fact required and no reasoning beyond locating the correct memory.
+| | |
+|---|---|
+| **Core question** | Can the benchmark determine whether a system correctly retrieves one stored memory? |
+| **Definition** | The answer is fully contained in one stored fact or turn. Retrieving and returning that fact—verbatim or paraphrased—is sufficient; no other stored fact or reasoning step is required. |
+| **Cognitive-science lens** | Declarative memory retrieval: recalling a fact that was explicitly encoded. |
 
-**Motivation**: this is the most fundamental memory capability, and the floor every other
-capability builds on — a system that can't reliably do this can't be trusted on anything more
-complex layered on top of it.
+## Why this capability matters
 
-**Why it matters**: nearly every practical use of conversational memory (recalling a name, a
-preference, a stated fact) reduces to this at the lowest level. If a system fails here,
-downstream capabilities that assume correct retrieval (synthesis, personalization, updating)
-are unverifiable — you can't tell whether a multi-hop failure is a synthesis failure or a
-retrieval failure underneath it.
+Direct Retrieval is the most fundamental memory capability and the floor on which more complex capabilities build. A system that cannot reliably retrieve one relevant fact cannot be trusted on tasks that add synthesis, personalization, or updating on top of retrieval.
 
-**What kinds of benchmark tasks evaluate it**: factual recall, attribute lookup, remembering
-names or locations, and recalling explicitly-stated user preferences — any QA item whose
-answer traces to one identifiable source turn.
+Nearly every practical use of conversational memory starts here: recalling a name, preference, or stated fact. If retrieval fails, downstream failures cannot be diagnosed reliably—it is unclear whether the system failed to reason over the memories or never found the right memory at all.
 
-**What does not belong to this capability**: if answering requires combining ≥2 non-redundant
-stored facts, it's Relational Integration ([Capability 2](02-relational-integration.md)), not Direct Retrieval — even if a
-single evidence pointer could superficially answer a differently-phrased version of the
-question. A **contamination check** applies: the gold answer must not be derivable from the
-model's parametric world knowledge alone, without consulting the stored fact, or the benchmark
-isn't testing memory at all.
+## What a benchmark must require
 
-**Typical failure modes**: retrieving a similar-but-wrong fact (name/attribute confusion
-between entities), retrieving a stale version of a fact that was later updated (a Capability-4
-failure masquerading as a retrieval failure), or failing outright when the fact is buried deep
-in a long context.
+A Direct Retrieval item should require an answer that traces to **one identifiable source turn**. Typical task formats include:
 
-**Example benchmark questions**: *"What city does the user live in?"* → answerable from one
-turn where the user stated their city once; *"What is the user's job?"* → answerable from a
-single stated fact, with no other turn needed to derive it.
+- factual recall or attribute lookup;
+- recalling a name, location, or explicitly stated preference; and
+- any question whose answer is fully supported by one stored fact.
 
-**Relationship to other capabilities**: the baseline every other capability is defined
-*against* — Capabilities 2–14 all specify, in their own boundary rules, how they differ from
-this one.
+### Example
 
-**Mapping to cognitive science**: declarative memory retrieval — recalling a fact that was
-explicitly encoded, the most basic operation in the declarative memory system.
+> **Question:** “What city does the user live in?”
+>
+> **Qualifies when:** one earlier turn states the user's city, and no other turn is needed to answer the question.
 
-**Notes about common ambiguities**: a category labeled "single-hop" or similar by a benchmark's
-authors is not automatically Direct Retrieval — always spot-check concrete examples, since
-annotation label noise is common: an item can be labeled as requiring only one source turn while
-actually needing another, or vice versa. Verify by reading the cited turns directly rather than
-trusting the label.
+Likewise, “What is the user's job?” qualifies when one stated fact completely answers it. These are generic examples, not references to a specific benchmark or dataset.
 
+## Boundaries and exclusions
+
+Direct Retrieval is deliberately narrow. An item does **not** belong here when:
+
+- **It requires two or more non-redundant facts.** That is [Relational Integration](02-relational-integration.md) (Capability 2), even if a differently phrased question could be answered from one evidence pointer.
+- **It requires temporal interpretation.** Recalling a timestamp verbatim may be Direct Retrieval; ordering events, resolving recency, or calculating a duration is [Temporal Reasoning](03-temporal-reasoning.md) (Capability 3).
+- **It requires choosing a newer fact over a contradicted older fact.** That is [Memory Updating](04-memory-updating.md) (Capability 4), not ordinary retrieval.
+- **The answer is available from the model's parametric world knowledge alone.** The benchmark must require consulting the stored fact; otherwise it is not testing memory.
+
+### How to classify a test item
+
+Use this quick check when evaluating a candidate item:
+
+1. Can one stored turn fully answer the question?
+2. Is that turn necessary—that is, can the answer *not* be supplied reliably from general world knowledge alone?
+3. Does the question avoid temporal computation, contradiction resolution, and combining multiple facts?
+
+If all three answers are yes, the item is a Direct Retrieval candidate. Read the actual cited turn before assigning the category; an annotation such as “single-hop” is useful evidence, not proof.
+
+## Common failure modes
+
+- Retrieving a similar but wrong fact, such as confusing attributes between entities.
+- Returning a stale fact that was later updated; this can look like retrieval failure but is often a Capability-4 failure.
+- Failing to retrieve a relevant fact buried deep in a long history.
+
+## Relationship to other capabilities
+
+Direct Retrieval is the baseline against which the other capabilities are defined. It supplies the individual facts that [Relational Integration](02-relational-integration.md) combines, but it does not itself test that combination. It is also distinct from temporal interpretation, update resolution, and every other capability that requires more than locating one correct stored fact.
+
+## Common classification pitfalls
+
+A benchmark category named “single-hop” is not automatically Direct Retrieval. Labels can be noisy: an item may be tagged as requiring one source turn while actually needing another, or vice versa. Verify the classification by reading the cited turns directly rather than trusting the label alone.
