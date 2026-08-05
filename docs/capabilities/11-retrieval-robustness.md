@@ -67,10 +67,10 @@ presence-based metric while being useless in practice because of surrounding noi
 ## Relationship to other capabilities
 
 closely tied to [Capability 1](01-direct-retrieval.md) (it's a robustness
-qualifier on retrieval accuracy, not a separate retrieval task) and to [Capability 5](05-forgetting-and-memory-management.md) (unmanaged
-accumulation from failing to forget is one way noise builds up in the first place, though the
-two capabilities test different things — active memory management vs. resistance to whatever
-noise is present).
+qualifier on retrieval accuracy, not a separate retrieval task). It is distinct from
+[Capability 5](05-directed-memory-deletion.md): a system may resist distractors even when all
+memories remain stored, while deletion requires an explicit instruction and later non-retrieval or
+non-use of its named target.
 
 ## Common classification pitfalls
 

@@ -27,10 +27,10 @@ corrections ("actually, I..."), contradictory statements across sessions, and re
 
 ## Boundaries and exclusions
 
-this is not Forgetting/Memory Management
-([Capability 5](05-forgetting-and-memory-management.md)) — updating is about *correctness in the face of an explicit contradiction*,
-while forgetting is about deprioritizing information that was never contradicted, just no
-longer relevant. It is also not Relational Integration ([Capability 2](02-relational-integration.md)): when two facts must be
+this is not Directed Memory Deletion
+([Capability 5](05-directed-memory-deletion.md)) — updating is about *correctness in the face of an explicit contradiction*,
+whereas directed deletion requires an explicit instruction to stop retrieving and using a specified
+memory. It is also not Relational Integration ([Capability 2](02-relational-integration.md)): when two facts must be
 combined *because* one supersedes the other, that combination is this capability, not
 [Capability 2](02-relational-integration.md), which assumes the combined facts are compatible.
 
@@ -66,9 +66,10 @@ asked.
 ## Relationship to other capabilities
 
 adjacent to [Capability 2](02-relational-integration.md) (both involve reasoning across
-multiple stored facts) and [Capability 5](05-forgetting-and-memory-management.md) (both involve a stored fact losing priority over time),
-but distinguished from each by the presence of an explicit contradiction requiring resolution,
-as opposed to compatible facts ([Capability 2](02-relational-integration.md)) or simple staleness/irrelevance ([Capability 5](05-forgetting-and-memory-management.md)).
+multiple stored facts) and [Capability 5](05-directed-memory-deletion.md) (both can make an old
+fact unavailable for later use), but distinguished by the event that causes the change: updating
+requires an explicit contradiction, while directed deletion requires an explicit instruction to
+stop retrieving and using a specified memory. Relational Integration assumes compatible facts.
 
 ## Common classification pitfalls
 

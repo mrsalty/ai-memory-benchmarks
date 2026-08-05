@@ -104,7 +104,7 @@ capabilities, and how well, is scored on each benchmark's own page under
 | 2 | [Relational Integration (Multi-hop)](capabilities/02-relational-integration.md) | cog-sci: associative/relational integration |
 | 3 | [Temporal Reasoning](capabilities/03-temporal-reasoning.md) | cog-sci: temporal source memory |
 | 4 | [Memory Updating](capabilities/04-memory-updating.md) | cog-sci: memory updating, interference resolution |
-| 5 | [Forgetting and Memory Management](capabilities/05-forgetting-and-memory-management.md) | cog-sci: decay / forgetting-curve theory |
+| 5 | [Directed Memory Deletion](capabilities/05-directed-memory-deletion.md) | sw-sys: explicit memory-control operation, no direct cog-sci equivalent |
 | 6 | [Personalization](capabilities/06-personalization.md) | cog-sci: self-referential / autobiographical memory |
 | 7 | [Procedural Memory](capabilities/07-procedural-memory.md) | cog-sci: non-declarative / skill memory (substrate mismatch — see page) |
 | 8 | [Knowledge Abstraction](capabilities/08-knowledge-abstraction.md) | cog-sci: schema formation, semantic memory consolidation |
@@ -126,10 +126,9 @@ so the gap doesn't get lost — this is one of the more citable findings of the 
 - **Prospective memory** — "remember to do X later." A core human memory capability; essentially
   absent from every AI memory benchmark surveyed so far.
 - **Retrieval-induced forgetting / interference** — recalling one memory suppressing related
-  ones. Related to, but distinct from, [Capability 5](capabilities/05-forgetting-and-memory-management.md)
-  (which is about deprioritizing stale/irrelevant information, not about retrieval itself
-  actively suppressing competing memories). No benchmark scores this as a *failure mode*; all
-  treat any forgetting as strictly bad.
+  ones. This is distinct from [Capability 5](capabilities/05-directed-memory-deletion.md), which
+  requires an explicit directed deletion operation. No benchmark scores retrieval-induced
+  forgetting as a *failure mode*; all treat any forgetting as strictly bad.
 - **Reconsolidation-on-retrieval** — a memory becoming modifiable simply by being recalled. No
   benchmark tests whether retrieval itself should alter stored state.
 

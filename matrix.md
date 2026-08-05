@@ -30,7 +30,7 @@ Each row is a verified benchmark; each numbered column is one of the 16 capabili
 | 2 | [Relational Integration (Multi-hop)](docs/capabilities/02-relational-integration.md) | 10 | [Memory Calibration](docs/capabilities/10-memory-calibration.md) |
 | 3 | [Temporal Reasoning](docs/capabilities/03-temporal-reasoning.md) | 11 | [Retrieval Robustness](docs/capabilities/11-retrieval-robustness.md) |
 | 4 | [Memory Updating](docs/capabilities/04-memory-updating.md) | 12 | [Persistence](docs/capabilities/12-persistence.md) |
-| 5 | [Forgetting and Memory Management](docs/capabilities/05-forgetting-and-memory-management.md) | 13 | [Scalability](docs/capabilities/13-scalability.md) |
+| 5 | [Directed Memory Deletion](docs/capabilities/05-directed-memory-deletion.md) | 13 | [Scalability](docs/capabilities/13-scalability.md) |
 | 6 | [Personalization](docs/capabilities/06-personalization.md) | 14 | [Associative Retrieval](docs/capabilities/14-associative-retrieval.md) |
 | 7 | [Procedural Memory](docs/capabilities/07-procedural-memory.md) | 15 | [Memory Formation and Write Fidelity](docs/capabilities/15-memory-formation-and-write-fidelity.md) |
 | 8 | [Knowledge Abstraction](docs/capabilities/08-knowledge-abstraction.md) | 16 | [Memory Provenance and Source Attribution](docs/capabilities/16-memory-provenance-and-source-attribution.md) |
